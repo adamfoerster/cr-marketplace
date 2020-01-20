@@ -1,3 +1,11 @@
+<script>
+import { getStore } from "./store.js";
+  const store = getStore();
+  let sorting = "score";
+
+  $: setSorting = store.setSorting(sorting);
+</script>
+
 <style>
   div {
     display: flex;
@@ -13,9 +21,9 @@
 
 <div>
   <h1>Games</h1>
-  <select>
-    <option>Mais Populares</option>
-    <option>Menor Preço</option>
-    <option>Ordem Alfabética</option>
+  <select bind:value={sorting} on:change=>
+    <option value="score">Mais Populares</option>
+    <option value="price">Menor Preço</option>
+    <option value="alpha">Ordem Alfabética</option>
   </select>
 </div>
