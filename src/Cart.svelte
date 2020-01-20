@@ -1,3 +1,14 @@
+<script>
+  import { getStore } from "./store.js";
+  import CartItem from "./CartItem.svelte";
+  import CartEmpty from "./CartEmpty.svelte";
+  import CartCosts from "./CartCosts.svelte";
+
+  let cartItems = [];
+
+  getStore().cart$(items => (cartItems = items));
+</script>
+
 <style>
   .container {
     border-radius: 0.3rem;
@@ -9,21 +20,17 @@
   h2 {
     text-align: left;
   }
-  .empty-cart {
-    display: flex;
-    flex-direction: column;
-    margin: 3rem 1rem;
-    color: var(--medium-gray);
-  }
-  .empty-cart img {
-    margin: 0 0 1rem;
-  }
 </style>
 
 <div class="container">
   <h2>Carrinho</h2>
-  <div class="empty-cart">
-    <img src="/assets/cart-icon.svg" alt="Carrinho vazio" />
-    Até o momento o seu carrinho está vazio.
-  </div>
+  {#if !cartItems.length}
+    <CartEmpty />
+  {:else}
+    {#each cartItems as item}
+      <CartItem {...item} />
+    {/each}
+    <CartCosts />
+    <button>finalizar compra</button>
+  {/if}
 </div>
