@@ -42,6 +42,7 @@
   span {
     color: var(--blue);
     font-weight: 700;
+    font-size: 1.25rem;
   }
 </style>
 

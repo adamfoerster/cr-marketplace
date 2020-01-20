@@ -39,6 +39,10 @@
     text-align: right;
     color: var(--black);
     font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .costs .total {
+    font-size: 1.5rem;
   }
 </style>
 
@@ -48,5 +52,5 @@
   <div>frete</div>
   <div class="amount">R$ {brlShipping}</div>
   <div>total</div>
-  <div class="amount">R$ {brlTotal}</div>
+  <div class="amount total">R$ {brlTotal}</div>
 </div>
