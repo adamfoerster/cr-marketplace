@@ -34,6 +34,7 @@
   .costs div {
     text-align: left;
     margin: 0.5rem 0;
+    color: var(--medium-gray);
   }
   .costs .amount {
     text-align: right;

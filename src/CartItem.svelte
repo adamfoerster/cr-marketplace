@@ -37,7 +37,7 @@
   .name {
     flex: 1;
     text-align: left;
-    color: var(--dark-gray);
+    color: var(--medium-gray);
     padding-left: 0.5rem;
   }
   span {
