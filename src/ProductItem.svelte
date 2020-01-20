@@ -1,9 +1,29 @@
 <script>
+  import { getStore } from "./store.js";
+  import { brl } from "./helpers.js";
+
   export let id;
   export let name;
   export let price;
   export let image;
   export let score;
+
+  let hovering = false;
+
+  const hoverIn = () => (hovering = true);
+  const hoverOut = () => (hovering = false);
+
+  const addToCart = () => {
+    getStore().addToCart({
+      id,
+      name,
+      price,
+      image,
+      score
+    });
+  };
+
+  $: brlPrice = brl(price);
 </script>
 
 <style>
@@ -16,14 +36,26 @@
     background-color: var(--light-gray);
     width: 100%;
     padding: 1rem 0;
-    margin: 0 0 .5rem;
+    margin: 0 0 0.5rem;
+  }
+  span {
+    color: var(--blue);
+    font-weight: 700;
   }
 </style>
 
-<div class="container">
+<div
+  on:click={addToCart}
+  on:mouseover={hoverIn}
+  on:mouseout={hoverOut}
+  class="container">
   <div class="img-bg">
-  <img src={'/assets/' + image} alt={name} />
+    <img src={'/assets/' + image} alt={name} />
   </div>
-  <h3>{name}</h3>
-  <span>{price}</span>
+  {#if hovering}
+    <span>adicionar ao carrinho</span>
+  {:else}
+    <h3>{name}</h3>
+    <span>R$ {brlPrice}</span>
+  {/if}
 </div>
