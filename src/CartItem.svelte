@@ -6,7 +6,7 @@
   export let name;
   export let price;
   export let image;
-  export let score;
+  export const score = 0;
 
   let hovering = 0;
 
