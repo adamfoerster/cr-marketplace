@@ -17,11 +17,15 @@ import { getStore } from "./store.js";
     text-align: left;
     flex: 1;
   }
+  label {
+    opacity: 0;
+  }
 </style>
 
 <div>
   <h1>Games</h1>
-  <select bind:value={sorting} on:change=>
+  <label for="sorting">Ordenação</label>
+  <select bind:value={sorting} name="sorting" on:change=>
     <option value="score">Mais Populares</option>
     <option value="price">Menor Preço</option>
     <option value="alpha">Ordem Alfabética</option>
