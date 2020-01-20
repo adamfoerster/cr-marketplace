@@ -1,5 +1,5 @@
 <script>
-import { getStore } from "./store.js";
+  import { getStore } from "./store.js";
   const store = getStore();
   let sorting = "score";
 
@@ -18,15 +18,15 @@ import { getStore } from "./store.js";
     flex: 1;
   }
   label {
-    font-size: .1rem;
-    opacity: 0.05;
+    font-size: 0.1rem;
+    opacity: 0.1;
   }
 </style>
 
 <div>
   <h1>Games</h1>
   <label for="sorting">Ordenação</label>
-  <select bind:value={sorting} name="sorting" on:change=>
+  <select bind:value={sorting} id="sorting" on:change>
     <option value="score">Mais Populares</option>
     <option value="price">Menor Preço</option>
     <option value="alpha">Ordem Alfabética</option>
