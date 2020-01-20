@@ -18,7 +18,8 @@ import { getStore } from "./store.js";
     flex: 1;
   }
   label {
-    opacity: 0;
+    font-size: .1rem;
+    opacity: 0.05;
   }
 </style>
 

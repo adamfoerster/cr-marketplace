@@ -31,6 +31,7 @@
     width: 100%;
     min-height: 100px;
     text-align: center;
+    background-color: white;
   }
   .img-bg {
     background-color: var(--light-gray);
@@ -53,6 +54,7 @@
     <img src={'/assets/' + image} alt={name} />
   </div>
   {#if hovering}
+    <br />
     <span>adicionar ao carrinho</span>
   {:else}
     <h3>{name}</h3>
