@@ -1,10 +1,14 @@
 <script>
   import Header from "./Header.svelte";
   import Cart from "./Cart.svelte";
-	import ProductList from "./ProductList.svelte";
-	import { getStore } from "./store.js";
+  import ProductList from "./ProductList.svelte";
+  import { onMount } from "svelte";
+  import { getStore } from "./store.js";
 
-	getStore().fetchProducts();
+  onMount(() => {
+    document.querySelector("h1").remove();
+    getStore().fetchProducts();
+  });
 </script>
 
 <style>
