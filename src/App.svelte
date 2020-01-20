@@ -2,9 +2,9 @@
   import Header from "./Header.svelte";
   import Cart from "./Cart.svelte";
 	import ProductList from "./ProductList.svelte";
-	import { fetchProducts } from "./store.js";
+	import { getStore } from "./store.js";
 
-	fetchProducts();
+	getStore().fetchProducts();
 </script>
 
 <style>
