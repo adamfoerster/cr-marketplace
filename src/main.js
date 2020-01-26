@@ -7,7 +7,7 @@ const app = new App({
       api:
         location.hostname === 'hostname'
           ? 'http://localhost:5000/'
-          : 'https://cr-marketplace.netlify.com'
+          : 'https://cr-marketplace.netlify.com/'
     }
   }
 });
