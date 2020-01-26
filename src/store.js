@@ -10,19 +10,23 @@ export const getStore = () => {
 };
 
 const createStore = () => {
+  const environment = writable('dev');
   const products = writable([]);
   const sorting = writable('score');
   const cart = writable([]);
+  let env;
 
   return {
+    environment$: environment.subscribe,
     products$: products.subscribe,
     sorting$: sorting.subscribe,
     cart$: cart.subscribe,
 
     fetchProducts: () => {
-      fetch('products.json')
+      fetch(`${get(environment).api || '/'}products.json`)
         .then(response => response.json())
-        .then(json => products.set(json));
+        .then(json => products.set(json))
+        .catch(error => console.log(error));
     },
 
     addToCart: newProduct => {
@@ -36,6 +40,11 @@ const createStore = () => {
       cart.set(get(cart).filter(item => item.id !== id));
     },
 
-    setSorting: sortingMethod => sorting.set(sortingMethod)
+    setSorting: sortingMethod => sorting.set(sortingMethod),
+
+    setEnv: tenv => {
+      env = tenv;
+      environment.set(tenv);
+    }
   };
 };

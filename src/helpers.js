@@ -29,5 +29,8 @@ export const by = {
 };
 
 export const brl = amount => {
+  if (!amount) {
+    return '0,00';
+  }
   return amount.toFixed(2).split('.').join(',');
 };

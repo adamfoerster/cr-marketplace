@@ -5,9 +5,13 @@
   import { onMount } from "svelte";
   import { getStore } from "./store.js";
 
+  export let environment;
+
   onMount(() => {
     document.querySelector("h1").remove();
-    getStore().fetchProducts();
+    const store = getStore();
+    store.setEnv(environment);
+    store.fetchProducts();
   });
 </script>
 
